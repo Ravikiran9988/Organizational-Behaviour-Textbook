@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Organizational Behaviour — Full Textbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #1a1108;
+  --paper: #faf6ee;
+  --cream: #f0e9d6;
+  --rust: #b84a1e;
+  --gold: #c9943a;
+  --sage: #3e6b35;
+  --blue: #1e4d8c;
+  --purple: #5a3e82;
+  --teal: #1e6b6b;
+  --muted: #7a6e5f;
+  --line: #ddd4ba;
+  --card: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* ── STICKY NAV ── */
+.toc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 3px solid var(--rust);
+}
+.toc-nav::-webkit-scrollbar { display: none; }
+.toc-nav a {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a89880;
+  text-decoration: none;
+  padding: 14px 14px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.toc-nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.toc-nav .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: var(--paper);
+  font-weight: 700;
+  margin-right: 16px;
+  padding: 14px 0;
+  white-space: nowrap;
+  border-bottom: none;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 72px 40px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: 'OB';
+  position: absolute;
+  right: -20px; bottom: -40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 260px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 900;
+  color: var(--paper);
+  line-height: 1.05;
+  max-width: 780px;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero-sub {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #a89880;
+  font-style: italic;
+  max-width: 600px;
+}
+.hero-meta {
+  margin-top: 32px;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #6a5e4e;
+  text-transform: uppercase;
+}
+.hero-meta span b { color: #c8bfaf; }
+
+/* ── CONTAINER ── */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+/* ── UNIT SECTION ── */
+.unit-section { padding: 64px 0 48px; border-bottom: 1px solid var(--line); }
+.unit-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.unit-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 0.85;
+  color: var(--cream);
+  flex-shrink: 0;
+  text-shadow: 2px 2px 0 var(--line);
+  user-select: none;
+}
+.unit-title-block { padding-top: 6px; }
+.unit-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.tag-u1 { background: #fbe9dc; color: var(--rust); }
+.tag-u2 { background: #eaf0e6; color: var(--sage); }
+.tag-u3 { background: #fdf4e0; color: #8a6010; }
+.tag-u4 { background: #e8e4f0; color: var(--purple); }
+.tag-u5 { background: #e0edf0; color: var(--teal); }
+
+.unit-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* ── TOPIC BLOCK ── */
+.topic {
+  margin-bottom: 44px;
+  padding-left: 20px;
+  border-left: 3px solid var(--line);
+  transition: border-color 0.3s;
+}
+.topic:hover { border-color: var(--gold); }
+.topic h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.topic h4 {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--rust);
+  margin: 20px 0 6px;
+}
+.topic p {
+  font-size: 15.5px;
+  color: #3e3428;
+  margin-bottom: 10px;
+}
+.topic ul, .topic ol {
+  padding-left: 22px;
+  margin-bottom: 10px;
+}
+.topic li {
+  font-size: 15.5px;
+  color: #3e3428;
+  margin-bottom: 6px;
+}
+.topic li b { color: var(--ink); }
+
+/* ── CALLOUT BOX ── */
+.callout {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 6px 6px 0;
+}
+.callout p {
+  font-size: 15px;
+  color: #4a3e2e;
+  margin: 0;
+}
+.callout-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* ── DEFINITION BOX ── */
+.def-box {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 20px 24px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.def-box .def-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.def-box p {
+  font-size: 16px;
+  font-style: italic;
+  color: #e0d8c8;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ── GRID LIST ── */
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.grid-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  border-radius: 4px;
+}
+.grid-item .gi-title {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.grid-item p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── TABLE ── */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+.styled-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+.styled-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: #3e3428;
+}
+.styled-table tr:nth-child(even) td { background: var(--cream); }
+
+/* ── DIVIDER ── */
+.section-divider {
+  text-align: center;
+  margin: 48px 0 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--line);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: #6a5e4e;
+  text-align: center;
+  padding: 36px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 3px solid var(--rust);
+}
+footer span { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .hero { padding: 48px 24px 48px; }
+  .unit-header { flex-direction: column; gap: 8px; }
+  .unit-number { font-size: 56px; }
+  .wrap { padding: 0 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="toc-nav">
+  <span class="brand">OB Notes</span>
+  <a href="#unit1">Unit I</a>
+  <a href="#unit2">Unit II</a>
+  <a href="#unit3">Unit III</a>
+  <a href="#unit4">Unit IV</a>
+  <a href="#unit5">Unit V</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-tag">B.Tech CSE · IV Year II Sem · R22</div>
+    <h1>Organizational<br/><em>Behaviour</em></h1>
+    <p class="hero-sub">Complete textbook notes — all 5 units explained simply and clearly.</p>
+    <div class="hero-meta">
+      <span><b>Credits:</b> 3-0-0-3</span>
+      <span><b>Units:</b> 5</span>
+      <span><b>College:</b> Vaagdevi Engineering</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     UNIT I — ORGANIZATIONAL BEHAVIOUR
+════════════════════════════════════════════ -->
+<section id="unit1">
+<div class="wrap">
+<div class="unit-section">
+
+  <div class="unit-header">
+    <div class="unit-number">I</div>
+    <div class="unit-title-block">
+      <span class="unit-tag tag-u1">Unit One · Foundations</span>
+      <div class="unit-title">Organizational Behaviour</div>
+    </div>
+  </div>
+
+  <!-- 1.1 Definition -->
+  <div class="topic">
+    <h3>1.1 What is Organizational Behaviour (OB)?</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Organizational Behaviour is the study of human behaviour in organizational settings, the interface between human behaviour and the organization, and the organization itself."</p>
+    </div>
+    <p>In simple words, OB is the study of <b>how people act at work</b> — individually and in groups — and how that behaviour affects the performance of an organization.</p>
+    <p>Think of it like this: You join a company. You have your own personality, habits, and emotions. Your colleagues are different. Your manager leads in a certain way. All of this — how you all behave together — is what OB tries to understand and improve.</p>
+    <div class="callout">
+      <div class="callout-title">💡 Real-Life Example</div>
+      <p>Why does one team work efficiently while another team in the same company always fights? OB answers these kinds of questions.</p>
+    </div>
+  </div>
+
+  <!-- 1.2 Need and Importance -->
+  <div class="topic">
+    <h3>1.2 Need and Importance of OB</h3>
+    <p>Why do we study Organizational Behaviour? Here are the key reasons:</p>
+    <ul>
+      <li><b>Understanding People:</b> Organizations are made of people. To run them well, you must understand human nature, motivations, and behaviour.</li>
+      <li><b>Improving Productivity:</b> OB helps identify what motivates employees, which boosts performance and efficiency.</li>
+      <li><b>Managing Conflicts:</b> Conflicts are common in any workplace. OB gives tools to handle disagreements professionally.</li>
+      <li><b>Better Leadership:</b> OB helps leaders understand their own style and how to influence others effectively.</li>
+      <li><b>Reducing Employee Turnover:</b> Happy and motivated employees stay longer. OB helps create a positive work environment.</li>
+      <li><b>Adapting to Change:</b> In today's fast-changing world, organizations must adapt quickly. OB helps manage that change smoothly.</li>
+      <li><b>Better Communication:</b> OB teaches how communication flows in organizations and how to improve it.</li>
+    </ul>
+  </div>
+
+  <!-- 1.3 Nature and Scope -->
+  <div class="topic">
+    <h3>1.3 Nature of Organizational Behaviour</h3>
+    <ul>
+      <li><b>It is a Science:</b> OB uses scientific methods — research, data, and observations — to study behaviour.</li>
+      <li><b>It is an Art:</b> Applying OB knowledge to manage people requires skill and creativity.</li>
+      <li><b>It is Interdisciplinary:</b> OB borrows ideas from Psychology, Sociology, Anthropology, and Economics.</li>
+      <li><b>It is Humanistic:</b> It believes people have real feelings and motivations — not just robotic workers.</li>
+      <li><b>It is Situational:</b> There is no one-size-fits-all solution. The right approach depends on the situation.</li>
+      <li><b>It is Goal-Oriented:</b> The ultimate aim is to improve organizational effectiveness.</li>
+    </ul>
+    <h4>Scope of OB</h4>
+    <p>OB covers three levels of study:</p>
+    <div class="grid-list">
+      <div class="grid-item"><div class="gi-title">👤 Individual Level</div><p>Personality, perception, motivation, learning, attitudes, emotions.</p></div>
+      <div class="grid-item"><div class="gi-title">👥 Group Level</div><p>Team dynamics, leadership, communication, group decision-making.</p></div>
+      <div class="grid-item"><div class="gi-title">🏢 Organizational Level</div><p>Structure, culture, change, climate, politics, conflict.</p></div>
+    </div>
+  </div>
+
+  <!-- 1.4 OB Framework / Models -->
+  <div class="topic">
+    <h3>1.4 OB Framework and Models</h3>
+    <p>Managers use different frameworks (models) to understand and manage employee behaviour. There are four classic OB models:</p>
+    <table class="styled-table">
+      <thead><tr><th>Model</th><th>Core Idea</th><th>Manager's Role</th><th>Employee's Role</th></tr></thead>
+      <tbody>
+        <tr><td><b>Autocratic</b></td><td>Boss has all power. Obey orders.</td><td>Commands</td><td>Obeys</td></tr>
+        <tr><td><b>Custodial</b></td><td>Money and benefits retain employees.</td><td>Provides security</td><td>Depends on organization</td></tr>
+        <tr><td><b>Supportive</b></td><td>Leadership motivates employees.</td><td>Supports & helps</td><td>Participates</td></tr>
+        <tr><td><b>Collegial</b></td><td>Teamwork and partnership are key.</td><td>Team partner</td><td>Responsible & self-disciplined</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="callout-title">💡 Simple Tip</div>
+      <p>Modern organizations mostly use the <b>Supportive</b> and <b>Collegial</b> models because employees today want more than just money — they want respect, growth, and partnership.</p>
+    </div>
+  </div>
+
+  <!-- 1.5 Org Climate & Structure -->
+  <div class="topic">
+    <h3>1.5 Organizational Climate</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Organizational Climate is the overall atmosphere or 'feel' of a workplace, shaped by its policies, leadership, and culture."</p>
+    </div>
+    <p>Think of it like the weather inside a company. Some companies feel warm, open, and encouraging. Others feel cold, strict, and stressful. That "feeling" is the organizational climate.</p>
+    <h4>Factors That Shape Organizational Climate</h4>
+    <ul>
+      <li>Leadership style of managers</li>
+      <li>Communication patterns (open vs. closed)</li>
+      <li>Rules and policies of the organization</li>
+      <li>How conflicts are resolved</li>
+      <li>Degree of trust among employees</li>
+      <li>Rewards and recognition practices</li>
+    </ul>
+    <h4>Organizational Structure</h4>
+    <p>Structure refers to how an organization is <b>organized</b> — who reports to whom, how tasks are divided, and how information flows.</p>
+    <ul>
+      <li><b>Tall Structure:</b> Many levels of management. Strict control. Common in large companies like the army.</li>
+      <li><b>Flat Structure:</b> Few levels. More freedom for employees. Common in startups.</li>
+      <li><b>Matrix Structure:</b> Employees report to multiple managers. Common in project-based companies.</li>
+    </ul>
+    <p>Structure directly affects how people behave. A flat structure encourages creativity and quick decisions, while a tall structure creates order but can slow things down.</p>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     UNIT II — INDIVIDUAL BEHAVIOUR
+════════════════════════════════════════════ -->
+<section id="unit2">
+<div class="wrap">
+<div class="unit-section">
+
+  <div class="unit-header">
+    <div class="unit-number">II</div>
+    <div class="unit-title-block">
+      <span class="unit-tag tag-u2">Unit Two · Individual</span>
+      <div class="unit-title">Individual Behaviour</div>
+    </div>
+  </div>
+
+  <!-- 2.1 Personality -->
+  <div class="topic">
+    <h3>2.1 Personality</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Personality is the sum total of ways in which an individual reacts to and interacts with others — a dynamic organization of characteristics."</p>
+    </div>
+    <p>In simple words: your personality is what makes you <i>you</i>. It is the unique pattern of thoughts, feelings, and behaviours that you consistently show over time.</p>
+
+    <h4>Factors Influencing Personality</h4>
+    <ul>
+      <li><b>Heredity (Nature):</b> Genes you are born with — physical appearance, energy level, temperament.</li>
+      <li><b>Environment (Nurture):</b> Family, culture, friends, school, life experiences.</li>
+      <li><b>Situation:</b> The same person behaves differently in a job interview vs. with close friends.</li>
+    </ul>
+
+    <h4>Personality Types — The Big Five Model (OCEAN)</h4>
+    <div class="grid-list">
+      <div class="grid-item"><div class="gi-title">O — Openness</div><p>Curious, creative, open to new ideas. <br/>E.g., likes to try new things.</p></div>
+      <div class="grid-item"><div class="gi-title">C — Conscientiousness</div><p>Organized, disciplined, goal-oriented. <br/>E.g., finishes tasks before deadline.</p></div>
+      <div class="grid-item"><div class="gi-title">E — Extraversion</div><p>Talkative, outgoing, energetic. <br/>E.g., loves socializing.</p></div>
+      <div class="grid-item"><div class="gi-title">A — Agreeableness</div><p>Cooperative, kind, trusting. <br/>E.g., easy to work with.</p></div>
+      <div class="grid-item"><div class="gi-title">N — Neuroticism</div><p>Anxious, emotionally unstable. <br/>E.g., gets stressed easily.</p></div>
+    </div>
+
+    <h4>Type A vs Type B Personality</h4>
+    <table class="styled-table">
+      <thead><tr><th>Type A</th><th>Type B</th></tr></thead>
+      <tbody>
+        <tr><td>Always in a hurry</td><td>Relaxed and calm</td></tr>
+        <tr><td>Very competitive</td><td>Less competitive</td></tr>
+        <tr><td>Impatient</td><td>Patient</td></tr>
+        <tr><td>Multi-tasks constantly</td><td>Focuses on one thing</td></tr>
+        <tr><td>Prone to stress/heart disease</td><td>Better work-life balance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2.2 Learning -->
+  <div class="topic">
+    <h3>2.2 Learning</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Learning is any relatively permanent change in behaviour that occurs as a result of experience or practice."</p>
+    </div>
+    <p>Notice two key parts: <b>permanent change</b> (not just temporary) and <b>experience/practice</b> (not just reading a book).</p>
+
+    <h4>Theories of Learning</h4>
+    <ul>
+      <li><b>Classical Conditioning (Pavlov):</b> Learning through association. Pavlov rang a bell every time he fed a dog. Eventually, the dog salivated just at the sound of the bell. In organizations: employees associate a good manager with a good work environment.</li>
+      <li><b>Operant Conditioning (Skinner):</b> Learning through rewards and punishments.
+        <ul>
+          <li>Positive Reinforcement: Give reward → behaviour increases (e.g., bonus for meeting targets).</li>
+          <li>Negative Reinforcement: Remove punishment → behaviour increases (e.g., remove extra duties after improvement).</li>
+          <li>Punishment: Unpleasant consequence → behaviour decreases (e.g., warning letter).</li>
+          <li>Extinction: Remove reward → behaviour decreases (e.g., stop praising an employee who becomes lazy).</li>
+        </ul>
+      </li>
+      <li><b>Social Learning (Bandura):</b> Learning by watching others. Employees learn from their colleagues and role models in the organization.</li>
+    </ul>
+
+    <h4>The Learning Process</h4>
+    <p>Learning in organizations follows a cycle: <b>Experience → Reflect → Think → Experiment → New Experience</b>. This is called Kolb's Learning Cycle.</p>
+  </div>
+
+  <!-- 2.3 Perception -->
+  <div class="topic">
+    <h3>2.3 Perception</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Perception is the process by which individuals organize and interpret their sensory impressions in order to give meaning to their environment."</p>
+    </div>
+    <p>Two people can see the same thing and interpret it completely differently. That is the power of perception. It is not reality — it is YOUR reality.</p>
+
+    <h4>Factors Influencing Perception</h4>
+    <ul>
+      <li><b>The Perceiver:</b> Your own attitudes, motives, interests, experiences, and expectations.</li>
+      <li><b>The Target:</b> Novelty, motion, sounds, size, background of what you are perceiving.</li>
+      <li><b>The Situation:</b> Time, work setting, social setting.</li>
+    </ul>
+
+    <h4>Perceptual Errors (Very Important!)</h4>
+    <ul>
+      <li><b>Halo Effect:</b> Judging a person entirely based on one good trait. E.g., "She's well-dressed, so she must be smart."</li>
+      <li><b>Stereotyping:</b> Generalizing about a group. E.g., "All engineers are introverts."</li>
+      <li><b>Selective Perception:</b> Only noticing what we want to see and ignoring the rest.</li>
+      <li><b>Projection:</b> Attributing your own traits to others. E.g., an honest person trusts everyone.</li>
+      <li><b>Contrast Effect:</b> Evaluating a person compared to someone else instead of objectively.</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">💡 Why This Matters</div>
+      <p>Managers make hiring, promotion, and performance decisions based on perception. Knowing about perceptual errors helps make fairer, more objective judgments.</p>
+    </div>
+  </div>
+
+  <!-- 2.4 Emotional Intelligence -->
+  <div class="topic">
+    <h3>2.4 Emotional Intelligence (EI)</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Emotional Intelligence is the ability to recognize, understand, manage, and effectively use our own emotions and the emotions of others."</p>
+    </div>
+    <p>IQ (Intelligence Quotient) tells you how smart you are. EI (Emotional Intelligence) tells you how emotionally mature and socially skilled you are. Research shows <b>EI is a better predictor of workplace success than IQ.</b></p>
+
+    <h4>5 Components of EI (by Daniel Goleman)</h4>
+    <ul>
+      <li><b>Self-Awareness:</b> Knowing your own emotions and how they affect others.</li>
+      <li><b>Self-Regulation:</b> Controlling your impulses. Thinking before acting.</li>
+      <li><b>Motivation:</b> Being driven to achieve for the sake of achievement, not just money.</li>
+      <li><b>Empathy:</b> Understanding others' emotions. Putting yourself in their shoes.</li>
+      <li><b>Social Skills:</b> Managing relationships, influencing others, teamwork, and communication.</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">💡 Example</div>
+      <p>A manager with high EI notices a team member seems stressed. Instead of ignoring it, they check in, offer support, and adjust workload — improving both morale and productivity.</p>
+    </div>
+  </div>
+
+  <!-- 2.5 Attitudes -->
+  <div class="topic">
+    <h3>2.5 Attitudes</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"An attitude is a learned predisposition to respond in a consistently favourable or unfavourable manner with respect to a given object, person, or event."</p>
+    </div>
+    <p>Attitudes have <b>three components (ABC model):</b></p>
+    <ul>
+      <li><b>A — Affective:</b> The emotional component. "I feel..." (e.g., I feel good about my job.)</li>
+      <li><b>B — Behavioural:</b> The action component. "I intend to..." (e.g., I plan to stay at this job.)</li>
+      <li><b>C — Cognitive:</b> The belief component. "I think/believe..." (e.g., I believe this company is fair.)</li>
+    </ul>
+    <h4>Key Work Attitudes</h4>
+    <ul>
+      <li><b>Job Satisfaction:</b> How happy an employee is with their job.</li>
+      <li><b>Organizational Commitment:</b> How loyal an employee feels toward the organization.</li>
+      <li><b>Employee Engagement:</b> How enthusiastic and involved an employee is in their work.</li>
+    </ul>
+  </div>
+
+  <!-- 2.6 Behaviour Modification -->
+  <div class="topic">
+    <h3>2.6 Behaviour Modification</h3>
+    <p>Behaviour Modification (OB Mod) is the <b>systematic application of reinforcement theory</b> to improve employee behaviour in organizations.</p>
+    <p>Steps in OB Modification:</p>
+    <ol>
+      <li><b>Identify:</b> Find the specific behaviour that needs to change. (e.g., employees coming late)</li>
+      <li><b>Measure:</b> Track how often the behaviour occurs currently.</li>
+      <li><b>Analyze:</b> Find out the cause — what triggers the behaviour?</li>
+      <li><b>Intervene:</b> Use reinforcement (reward good behaviour, punish or ignore bad behaviour).</li>
+      <li><b>Evaluate:</b> Check if the behaviour has changed. Continue or adjust the strategy.</li>
+    </ol>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     UNIT III — GROUP BEHAVIOUR
+════════════════════════════════════════════ -->
+<section id="unit3">
+<div class="wrap">
+<div class="unit-section">
+
+  <div class="unit-header">
+    <div class="unit-number">III</div>
+    <div class="unit-title-block">
+      <span class="unit-tag tag-u3">Unit Three · Groups</span>
+      <div class="unit-title">Group Behaviour</div>
+    </div>
+  </div>
+
+  <!-- 3.1 Groups -->
+  <div class="topic">
+    <h3>3.1 Understanding Groups</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"A group is two or more individuals, interacting and interdependent, who have come together to achieve particular objectives."</p>
+    </div>
+    <h4>Types of Groups</h4>
+    <ul>
+      <li><b>Formal Groups:</b> Created by the organization for a specific purpose. E.g., project team, department.</li>
+      <li><b>Informal Groups:</b> Formed naturally by employees based on friendship, common interests. E.g., lunch group, cricket fans at office.</li>
+      <li><b>Command Group:</b> A manager and their direct reports.</li>
+      <li><b>Task Group:</b> People working together to complete a specific task.</li>
+      <li><b>Interest Group:</b> People with a common goal or concern.</li>
+      <li><b>Friendship Group:</b> People who like each other and socialize.</li>
+    </ul>
+    <h4>Why Do People Join Groups?</h4>
+    <ul>
+      <li>Security — feeling less vulnerable alone</li>
+      <li>Status — prestige from belonging to a high-status group</li>
+      <li>Self-esteem — feeling valued and recognized</li>
+      <li>Affiliation — need for social interaction</li>
+      <li>Power — strength in numbers</li>
+      <li>Goal achievement — tasks that require more than one person</li>
+    </ul>
+  </div>
+
+  <!-- 3.2 Group Development -->
+  <div class="topic">
+    <h3>3.2 Stages of Group Development (Tuckman's Model)</h3>
+    <p>Every group goes through five stages before it becomes fully effective:</p>
+    <div class="grid-list">
+      <div class="grid-item"><div class="gi-title">1. Forming</div><p>Members are polite, cautious, and getting to know each other. Everyone is on best behaviour.</p></div>
+      <div class="grid-item"><div class="gi-title">2. Storming</div><p>Conflicts arise! Disagreements about roles, ideas, and leadership. Tension is high.</p></div>
+      <div class="grid-item"><div class="gi-title">3. Norming</div><p>Conflicts are resolved. Norms are set. Trust builds. The group starts to cooperate.</p></div>
+      <div class="grid-item"><div class="gi-title">4. Performing</div><p>The group is fully functional. High energy, high productivity. Everyone knows their role.</p></div>
+      <div class="grid-item"><div class="gi-title">5. Adjourning</div><p>The group disbands after completing its task. Members reflect and say goodbye.</p></div>
+    </div>
+  </div>
+
+  <!-- 3.3 Team Building -->
+  <div class="topic">
+    <h3>3.3 Team Building</h3>
+    <p>A <b>team</b> is a special kind of group where members have <b>complementary skills</b>, a <b>shared purpose</b>, and <b>mutual accountability</b>. All teams are groups, but not all groups are teams.</p>
+    <h4>Characteristics of Effective Teams</h4>
+    <ul>
+      <li><b>Clear Goals:</b> Everyone knows what they are working toward.</li>
+      <li><b>Complementary Skills:</b> The team has a mix of technical, decision-making, and interpersonal skills.</li>
+      <li><b>Mutual Trust:</b> Members rely on and support each other.</li>
+      <li><b>Open Communication:</b> Ideas and feedback flow freely.</li>
+      <li><b>Shared Leadership:</b> Leadership shifts based on the situation and expertise.</li>
+      <li><b>Constructive Conflict:</b> Disagreements are handled professionally and improve decisions.</li>
+    </ul>
+    <h4>Team Building Activities</h4>
+    <p>Organizations use activities like workshops, retreats, group problem-solving exercises, and role-play to build team cohesion and trust.</p>
+  </div>
+
+  <!-- 3.4 Communication -->
+  <div class="topic">
+    <h3>3.4 Communication in Organizations</h3>
+    <p>Communication is the lifeblood of any organization. Without it, coordination is impossible.</p>
+    <h4>Types of Communication</h4>
+    <ul>
+      <li><b>Verbal:</b> Face-to-face, phone calls, meetings.</li>
+      <li><b>Written:</b> Emails, reports, memos, letters.</li>
+      <li><b>Non-Verbal:</b> Body language, facial expressions, tone of voice.</li>
+    </ul>
+    <h4>Direction of Communication</h4>
+    <ul>
+      <li><b>Downward:</b> From managers to employees. E.g., instructions, policies.</li>
+      <li><b>Upward:</b> From employees to managers. E.g., feedback, suggestions.</li>
+      <li><b>Lateral/Horizontal:</b> Between peers at the same level.</li>
+      <li><b>Diagonal:</b> Across different levels and departments.</li>
+    </ul>
+    <h4>Informal Communication — The Grapevine</h4>
+    <p>The grapevine is the <b>unofficial communication network</b> in an organization. It is fast but often inaccurate. Managers must monitor the grapevine and address rumours quickly.</p>
+    <h4>Barriers to Communication</h4>
+    <ul>
+      <li>Language differences</li>
+      <li>Noise and distractions</li>
+      <li>Emotional state (anger, fear)</li>
+      <li>Information overload</li>
+      <li>Perceptual differences</li>
+      <li>Status differences between sender and receiver</li>
+    </ul>
+  </div>
+
+  <!-- 3.5 Group Decision Making -->
+  <div class="topic">
+    <h3>3.5 Group Decision Making</h3>
+    <p>Group decisions are generally better than individual decisions because of <b>diverse perspectives</b>. But they can also face problems:</p>
+    <h4>Advantages of Group Decisions</h4>
+    <ul>
+      <li>More information and knowledge available</li>
+      <li>Generates more alternatives</li>
+      <li>Higher acceptance by members (since they were involved)</li>
+      <li>Better quality decisions</li>
+    </ul>
+    <h4>Disadvantages (Group Decision Traps)</h4>
+    <ul>
+      <li><b>Groupthink:</b> Desire for harmony overrides critical thinking. Everyone agrees even when they shouldn't. (Famous example: Challenger disaster)</li>
+      <li><b>Group Shift:</b> Groups tend to make more extreme decisions than individuals — either more risky or more cautious.</li>
+      <li>Time-consuming</li>
+      <li>Dominant members can suppress others</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">💡 Preventing Groupthink</div>
+      <p>Assign a "devil's advocate" who always challenges the group's consensus. This forces critical thinking and prevents blind agreement.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     UNIT IV — LEADERSHIP AND POWER
+════════════════════════════════════════════ -->
+<section id="unit4">
+<div class="wrap">
+<div class="unit-section">
+
+  <div class="unit-header">
+    <div class="unit-number">IV</div>
+    <div class="unit-title-block">
+      <span class="unit-tag tag-u4">Unit Four · Leadership</span>
+      <div class="unit-title">Leadership and Power</div>
+    </div>
+  </div>
+
+  <!-- 4.1 Leadership -->
+  <div class="topic">
+    <h3>4.1 What is Leadership?</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Leadership is the ability to influence a group toward the achievement of a vision or set of goals."</p>
+    </div>
+    <p>A leader is someone who inspires others to follow — not because they have to, but because they <i>want</i> to. Leadership is about influence, not authority.</p>
+    <h4>Importance of Leadership</h4>
+    <ul>
+      <li>Provides direction and vision to the team</li>
+      <li>Motivates employees during difficult times</li>
+      <li>Resolves conflicts and maintains team harmony</li>
+      <li>Helps organizations adapt to change</li>
+      <li>Builds trust and loyalty among employees</li>
+    </ul>
+  </div>
+
+  <!-- 4.2 Leaders vs Managers -->
+  <div class="topic">
+    <h3>4.2 Leaders vs Managers — Key Difference</h3>
+    <table class="styled-table">
+      <thead><tr><th>Leaders</th><th>Managers</th></tr></thead>
+      <tbody>
+        <tr><td>Innovate and create</td><td>Administer and maintain</td></tr>
+        <tr><td>Ask "What?" and "Why?"</td><td>Ask "How?" and "When?"</td></tr>
+        <tr><td>Inspire trust</td><td>Rely on control</td></tr>
+        <tr><td>Long-range view</td><td>Short-range view</td></tr>
+        <tr><td>Challenge the status quo</td><td>Accept the status quo</td></tr>
+        <tr><td>Focus on people</td><td>Focus on systems and structure</td></tr>
+        <tr><td>Do the right thing</td><td>Do things right</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="callout-title">💡 Best of Both Worlds</div>
+      <p>The most effective people are <b>both</b> good leaders and good managers. You need vision AND the ability to execute it.</p>
+    </div>
+  </div>
+
+  <!-- 4.3 Leadership Styles -->
+  <div class="topic">
+    <h3>4.3 Leadership Styles</h3>
+    <h4>1. Autocratic (Authoritarian) Style</h4>
+    <p>The leader makes all decisions alone. Employees have no say. Works well in emergencies or with unskilled workers. But kills creativity and motivation in the long run.</p>
+    <h4>2. Democratic (Participative) Style</h4>
+    <p>The leader involves the team in decisions. Boosts morale and creativity. Works well with skilled, motivated employees.</p>
+    <h4>3. Laissez-Faire (Free-Rein) Style</h4>
+    <p>The leader gives complete freedom to employees to make their own decisions. Works well with highly expert and self-motivated people (like research scientists). Can lead to chaos if the team lacks discipline.</p>
+    <h4>4. Transformational Leadership</h4>
+    <p>The leader inspires change by sharing a powerful vision and motivating followers to go beyond their own self-interest for the good of the group. E.g., Nelson Mandela, Steve Jobs.</p>
+    <h4>5. Transactional Leadership</h4>
+    <p>Based on exchange — "I will reward you if you do this." Focuses on maintaining performance standards through rewards and punishments.</p>
+    <h4>6. Servant Leadership</h4>
+    <p>The leader's primary role is to serve the team — removing obstacles, supporting growth, and putting employees first.</p>
+  </div>
+
+  <!-- 4.4 Theories of Leadership -->
+  <div class="topic">
+    <h3>4.4 Theories of Leadership</h3>
+    <h4>1. Trait Theory</h4>
+    <p>Leaders are born, not made. Certain traits (intelligence, confidence, integrity, charisma) make a person a leader. Limitation: Many good leaders don't have all these traits.</p>
+    <h4>2. Behavioural Theories</h4>
+    <p>What leaders <i>do</i> matters more than what they are. Two key dimensions: <b>Task-Oriented</b> (focus on getting work done) and <b>People-Oriented</b> (focus on employee welfare). The best leaders balance both. (Ohio State and Michigan Studies)</p>
+    <h4>3. Contingency Theories</h4>
+    <p>There is no single best leadership style. The best style depends on the situation.</p>
+    <ul>
+      <li><b>Fiedler's Contingency Model:</b> Match the leader to the situation. Task-oriented leaders excel in very favourable or unfavourable situations. People-oriented leaders excel in moderate situations.</li>
+      <li><b>Situational Leadership (Hersey & Blanchard):</b> Adjust your style based on follower maturity (ability + willingness). Telling → Selling → Participating → Delegating.</li>
+      <li><b>Path-Goal Theory:</b> Leaders motivate followers by clarifying the path to their goals and removing obstacles.</li>
+    </ul>
+  </div>
+
+  <!-- 4.5 Power -->
+  <div class="topic">
+    <h3>4.5 Power — Sources and Types</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Power is the capacity that A has to influence the behaviour of B, so that B acts in accordance with A's wishes."</p>
+    </div>
+    <h4>French & Raven's 5 Bases of Power</h4>
+    <div class="grid-list">
+      <div class="grid-item"><div class="gi-title">1. Coercive Power</div><p>Power based on fear. "Do it or face punishment." E.g., threats of firing, demotion.</p></div>
+      <div class="grid-item"><div class="gi-title">2. Reward Power</div><p>Power based on the ability to give rewards. E.g., bonuses, promotions, praise.</p></div>
+      <div class="grid-item"><div class="gi-title">3. Legitimate Power</div><p>Power from your formal position or title. E.g., a CEO has legitimate power over employees.</p></div>
+      <div class="grid-item"><div class="gi-title">4. Expert Power</div><p>Power from knowledge or skills. E.g., the IT expert everyone relies on.</p></div>
+      <div class="grid-item"><div class="gi-title">5. Referent Power</div><p>Power from admiration and respect. E.g., a charismatic leader people follow out of love.</p></div>
+    </div>
+    <h4>Power vs Authority</h4>
+    <p>Authority is formal (given by the organization). Power can be informal (earned through expertise, personality, or fear). A person can have power without authority and vice versa.</p>
+    <h4>Organizational Politics</h4>
+    <p>Organizational politics involves actions taken to acquire, develop, and use power and other resources to obtain preferred outcomes in situations of uncertainty. It is inevitable — the key is managing it ethically.</p>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     UNIT V — DYNAMICS OF OB
+════════════════════════════════════════════ -->
+<section id="unit5">
+<div class="wrap">
+<div class="unit-section">
+
+  <div class="unit-header">
+    <div class="unit-number">V</div>
+    <div class="unit-title-block">
+      <span class="unit-tag tag-u5">Unit Five · Change & Culture</span>
+      <div class="unit-title">Dynamics of Organizational Behaviour</div>
+    </div>
+  </div>
+
+  <!-- 5.1 Organizational Culture -->
+  <div class="topic">
+    <h3>5.1 Organizational Culture</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Organizational culture is the system of shared beliefs, values, and norms that distinguish one organization from another and guide employee behaviour."</p>
+    </div>
+    <p>Culture is "how we do things around here." It is invisible but powerfully shapes every decision, behaviour, and interaction in an organization.</p>
+    <h4>Characteristics of Organizational Culture</h4>
+    <ul>
+      <li><b>Innovation & Risk Taking:</b> Do employees feel encouraged to experiment?</li>
+      <li><b>Attention to Detail:</b> How precise and analytical are people expected to be?</li>
+      <li><b>Outcome Orientation:</b> Is focus on results or process?</li>
+      <li><b>People Orientation:</b> How much does management consider employee impact?</li>
+      <li><b>Team Orientation:</b> Is work organized around individuals or teams?</li>
+      <li><b>Aggressiveness:</b> Are people competitive or easy-going?</li>
+      <li><b>Stability:</b> Does the organization prefer maintaining the status quo or growth?</li>
+    </ul>
+    <h4>Strong vs Weak Culture</h4>
+    <ul>
+      <li><b>Strong Culture:</b> Core values are widely shared and deeply held. Employees behave consistently. E.g., Google, Apple.</li>
+      <li><b>Weak Culture:</b> Values are not clearly defined. Employees are unsure how to behave.</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">💡 Culture Eats Strategy for Breakfast</div>
+      <p>Even the best strategy will fail if the organizational culture doesn't support it. Culture is the foundation of everything.</p>
+    </div>
+  </div>
+
+  <!-- 5.2 Job Satisfaction -->
+  <div class="topic">
+    <h3>5.2 Job Satisfaction</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Job satisfaction is a positive feeling about one's job resulting from an evaluation of its characteristics."</p>
+    </div>
+    <p>It is simply: <b>How much do you like your job?</b></p>
+    <h4>Factors Influencing Job Satisfaction</h4>
+    <ul>
+      <li>The work itself (interesting and meaningful work)</li>
+      <li>Pay and benefits</li>
+      <li>Promotion opportunities</li>
+      <li>Quality of supervision</li>
+      <li>Relationships with coworkers</li>
+      <li>Working conditions</li>
+    </ul>
+    <h4>Consequences of Job Satisfaction/Dissatisfaction</h4>
+    <table class="styled-table">
+      <thead><tr><th>Satisfied Employees</th><th>Dissatisfied Employees</th></tr></thead>
+      <tbody>
+        <tr><td>Higher productivity</td><td>Lower productivity</td></tr>
+        <tr><td>Lower absenteeism</td><td>Higher absenteeism</td></tr>
+        <tr><td>Stay in the organization (loyalty)</td><td>Higher turnover (leave the company)</td></tr>
+        <tr><td>Better customer service</td><td>Poor customer interactions</td></tr>
+        <tr><td>Better physical and mental health</td><td>Stress, burnout</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.3 Organizational Change -->
+  <div class="topic">
+    <h3>5.3 Organizational Change</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Organizational change is the process by which organizations move from their present state to some desired future state to increase their effectiveness."</p>
+    </div>
+    <p>Change is constant in the modern world. Technology changes, markets change, governments change laws. Organizations must change to survive.</p>
+    <h4>Types of Change</h4>
+    <ul>
+      <li><b>Planned Change:</b> Deliberate and intentional. E.g., implementing a new software system.</li>
+      <li><b>Unplanned Change:</b> Forced by external events. E.g., COVID-19 forcing remote work.</li>
+      <li><b>Incremental Change:</b> Small, gradual improvements. E.g., improving a process step by step.</li>
+      <li><b>Radical/Transformational Change:</b> Major overhaul of the entire organization. E.g., a company shifting from manufacturing to software.</li>
+    </ul>
+    <h4>Lewin's 3-Step Change Model</h4>
+    <div class="grid-list">
+      <div class="grid-item"><div class="gi-title">Step 1: Unfreeze</div><p>Break old habits and mindsets. Make people understand WHY change is needed.</p></div>
+      <div class="grid-item"><div class="gi-title">Step 2: Change (Move)</div><p>Implement the actual change. Provide training, support, and resources.</p></div>
+      <div class="grid-item"><div class="gi-title">Step 3: Refreeze</div><p>Stabilize the change. Make the new way the standard. Reinforce and reward new behaviours.</p></div>
+    </div>
+  </div>
+
+  <!-- 5.4 Resistance to Change -->
+  <div class="topic">
+    <h3>5.4 Resistance to Change</h3>
+    <p>Almost everyone resists change to some degree. This is natural — change creates uncertainty and threatens what we know.</p>
+    <h4>Individual Sources of Resistance</h4>
+    <ul>
+      <li><b>Habit:</b> It is easier to keep doing things the familiar way.</li>
+      <li><b>Security:</b> Change threatens job security and comfort.</li>
+      <li><b>Fear of the Unknown:</b> People fear what they cannot predict.</li>
+      <li><b>Selective Information Processing:</b> People ignore information that challenges their views.</li>
+      <li><b>Economic Factors:</b> Fear of losing income.</li>
+    </ul>
+    <h4>Organizational Sources of Resistance</h4>
+    <ul>
+      <li>Structural inertia (existing systems resist change)</li>
+      <li>Limited focus of change (change in one part upsets another)</li>
+      <li>Group norms (the group's way of doing things)</li>
+      <li>Threat to power relationships</li>
+    </ul>
+    <h4>Overcoming Resistance to Change</h4>
+    <ul>
+      <li><b>Education & Communication:</b> Explain WHY the change is needed.</li>
+      <li><b>Participation:</b> Involve employees in planning the change.</li>
+      <li><b>Support & Facilitation:</b> Provide training and emotional support.</li>
+      <li><b>Negotiation:</b> Offer incentives to those who resist.</li>
+      <li><b>Coercion (Last Resort):</b> Mandate the change when necessary.</li>
+    </ul>
+  </div>
+
+  <!-- 5.5 Work Stress -->
+  <div class="topic">
+    <h3>5.5 Work Stress</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>"Stress is a dynamic condition in which an individual is confronted with an opportunity, constraint, or demand related to what they desire and the outcome is perceived to be both uncertain and important."</p>
+    </div>
+    <p>Simply: <b>Stress is the feeling that demands placed on you exceed your ability to cope.</b></p>
+    <h4>Sources of Work Stress (Stressors)</h4>
+    <ul>
+      <li><b>Task Demands:</b> Too much work (overload), tight deadlines, unclear job responsibilities.</li>
+      <li><b>Role Demands:</b> Role ambiguity (unclear expectations), role conflict (conflicting demands).</li>
+      <li><b>Interpersonal Demands:</b> Difficult coworkers, poor leadership, bullying.</li>
+      <li><b>Organizational Structure:</b> Too many rules, excessive monitoring, no employee involvement.</li>
+      <li><b>Work-Life Balance:</b> Long hours leaving no personal time.</li>
+    </ul>
+    <h4>Effects of Stress</h4>
+    <ul>
+      <li><b>Physical:</b> Headaches, heart disease, sleep disorders, low immunity.</li>
+      <li><b>Psychological:</b> Anxiety, depression, burnout, irritability.</li>
+      <li><b>Behavioural:</b> Absenteeism, low productivity, substance abuse, aggressive behaviour.</li>
+    </ul>
+    <h4>Managing Stress — Individual Strategies</h4>
+    <ul>
+      <li>Time management — prioritize and organize your work.</li>
+      <li>Exercise regularly — physical activity reduces cortisol (the stress hormone).</li>
+      <li>Relaxation techniques — meditation, deep breathing, yoga.</li>
+      <li>Build a social support network — talk to friends and family.</li>
+      <li>Seek professional help if stress becomes overwhelming.</li>
+    </ul>
+    <h4>Managing Stress — Organizational Strategies</h4>
+    <ul>
+      <li>Improved personnel selection — match people to the right roles.</li>
+      <li>Realistic job previews — don't oversell the role during hiring.</li>
+      <li>Goal setting — clear, achievable targets reduce ambiguity.</li>
+      <li>Employee assistance programs (EAPs) — counselling services.</li>
+      <li>Flexible work arrangements — remote work, flextime.</li>
+      <li>Wellness programs — gym, mental health days, healthy cafeteria.</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">💡 Good Stress vs Bad Stress</div>
+      <p><b>Eustress</b> is positive stress — the excitement before a presentation, the buzz of a challenging project. It improves performance. <b>Distress</b> is negative stress that overwhelms and damages health. The goal is not zero stress — it is <i>the right amount.</i></p>
+    </div>
+  </div>
+
+  <!-- 5.6 Balancing Work and Life -->
+  <div class="topic">
+    <h3>5.6 Work-Life Balance and Organizational Effectiveness</h3>
+    <p>Organizations that care about work-life balance see measurable results:</p>
+    <ul>
+      <li>Higher employee satisfaction and morale</li>
+      <li>Lower absenteeism and turnover</li>
+      <li>Greater creativity (a rested mind is a creative mind)</li>
+      <li>Better physical and mental health outcomes</li>
+      <li>Stronger employer brand — attracts top talent</li>
+    </ul>
+    <p>The modern organization understands that <b>employees are not machines</b>. Sustainable performance requires rest, recovery, and purpose. An organization's long-term success is deeply tied to the wellbeing of the humans who power it.</p>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>Organizational Behaviour · Complete Notes · B.Tech CSE · <span>IV Year II Semester · R22</span></div>
+  <div style="margin-top:8px;">Vaagdevi College of Engineering · All 5 Units Covered</div>
+</footer>
+
+</body>
+</html>
